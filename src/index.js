@@ -4,16 +4,16 @@ import { about } from "./about.js";
 import "./styles.css";
 
 function screenManager() {
-    const homeBtn = document.querySelector(".home");
-    const menuBtn = document.querySelector(".menu");
-    const aboutBtn = document.querySelector(".about");
+    const homeBtn = document.querySelector("#home");
+    const menuBtn = document.querySelector("#menu");
+    const aboutBtn = document.querySelector("#about");
     function screenUpdate(e) {
         const contentDiv = document.querySelector("#content");
         /* Clean all child */
         while (contentDiv.firstChild) {
         contentDiv.removeChild(contentDiv.lastChild);
         }
-        switch (e.target.getAttribute("class")) {
+        switch (e.target.getAttribute("id")) {
             case 'home':
                 home();
                 break;
@@ -33,3 +33,10 @@ function screenManager() {
 }
 
 screenManager();
+
+/*
+Image by 
+<a href="https://pixabay.com/users/lazarosv-24347528/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8913592">Laz Georgoulas</a> 
+from 
+<a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8913592">Pixabay</a>
+*/

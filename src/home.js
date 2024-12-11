@@ -4,6 +4,7 @@ export function home() {
     /* get the div */
     const contentDiv = document.querySelector("#content");
     const homeDiv = document.createElement("div");
-    homeDiv.innerHTML = `<p><b>Eat</b></p><p><b>Drink</b></p><p>and</p><p>Have <b>Fun</b>!</p>`
+    homeDiv.setAttribute("class", "home");
+    homeDiv.innerHTML = `<p>Eat</p><p>Drink</p><p>Have Fun!</p>`
     contentDiv.appendChild(homeDiv);
 }
