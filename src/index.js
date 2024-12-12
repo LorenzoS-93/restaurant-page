@@ -4,15 +4,18 @@ import { about } from "./about.js";
 import "./styles.css";
 
 function screenManager() {
-    const homeBtn = document.querySelector("#home");
-    const menuBtn = document.querySelector("#menu");
-    const aboutBtn = document.querySelector("#about");
+    const buttons = document.querySelectorAll("button");
     function screenUpdate(e) {
         const contentDiv = document.querySelector("#content");
-        /* Clean all child */
+        /* Clean all child and the selected button */
         while (contentDiv.firstChild) {
         contentDiv.removeChild(contentDiv.lastChild);
         }
+        for (const button of buttons) {
+            button.setAttribute("class", "");
+        }
+        /* select the button and execute the relative script */
+        e.target.setAttribute("class", "selected");
         switch (e.target.getAttribute("id")) {
             case 'home':
                 home();
@@ -25,9 +28,9 @@ function screenManager() {
                 break;
         }
     }
-    homeBtn.addEventListener("click", screenUpdate);
-    menuBtn.addEventListener("click", screenUpdate);
-    aboutBtn.addEventListener("click", screenUpdate);
+    for (const button of buttons) {
+        button.addEventListener("click", screenUpdate);
+    }
     /* Initial rendering */
     home();
 }
